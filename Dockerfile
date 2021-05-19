@@ -2,8 +2,8 @@ FROM python:3
 
 WORKDIR /usr/src/app
 
-COPY ../ .
+COPY . .
 RUN pip install -r requirements.txt
 
 ENTRYPOINT ["python"]
-CMD ["./api/hello.py"]
+CMD ["./view/app.py"]

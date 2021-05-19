@@ -19,22 +19,23 @@ def firstTarget():
 # e nesta rotina é realizada a requisição GET para o segundo endereço
 def secndTarget():
     url = requests.get("https://www.dan.me.uk/torlist")
+    bruteIPs = url.text
     
     # iteração for que adiciona os IP's encontrados a um array pré-definido
-    for ip in url:
+    for ip in bruteIPs:
         ipList.append(ip)
 
 
 # método que irá chamar as duas funções
 def getAll():
-    firstTarget()
+    #firstTarget()
     secndTarget()
     
     # laço for para verificação de possíveis erros
-    i = 1
-    for ip in ipList:
-        print(f'IP: {i}   ==>  {ip}')
-        i += 1
+    #i = 1
+    #for ip in ipList:
+    #    print(f'IP: {i}   ==>  {ip}')
+    #    i += 1
 
 
 getAll()

@@ -4,6 +4,7 @@ import requests, json
 # array que irá armazenar os nosso IP's
 ipList = list()
 
+
 # e nesta rotina é realizada a requisição GET para o primeiro endereço
 def firstTarget():
     bruteJSON = requests.get("https://onionoo.torproject.org/summary?limit=5000")
@@ -15,9 +16,19 @@ def firstTarget():
         ipList.append(ip['a'][0])
 
 
+# e nesta rotina é realizada a requisição GET para o segundo endereço
+def secndTarget():
+    url = requests.get("https://www.dan.me.uk/torlist")
+    
+    # iteração for que adiciona os IP's encontrados a um array pré-definido
+    for ip in url:
+        ipList.append(ip)
+
+
 # método que irá chamar as duas funções
 def getAll():
     firstTarget()
+    secndTarget()
     
     # laço for para verificação de possíveis erros
     i = 1

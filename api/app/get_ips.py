@@ -31,10 +31,8 @@ def getAll():
     secndTarget()
     
     # laço for para verificação de possíveis erros
-    i = 1
     for ip in ipList:
-        print(f'IP: {i}   ==>  {ip}')
-        i += 1
+        print(ip)
 
 
 getAll()

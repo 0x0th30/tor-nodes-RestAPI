@@ -3,6 +3,8 @@
 from flask import Flask, render_template, request
 from wtforms import Form, TextField
 
+from database_operations import *
+
 bannedIPS = list()
 
 # criei uma classe que irá gerar o formulário que obtem o IP a ser banido
@@ -25,6 +27,7 @@ def root():
     # analisa o tipo da request que foi realizada, e no caso de uma POST request o valor inserido no formulário
     if request.method == 'POST':
         name = request.form['name']
+        add_ban(name)
         bannedIPS.append(name)
     
     # retorna o html da pasta templates e executa ele

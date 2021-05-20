@@ -4,6 +4,8 @@ from flask import Flask, render_template, request
 from wtforms import Form, TextField
 
 from database_operations import *
+from get_ips import getAll
+from ban_filter import filterIPs
 
 bannedIPS = list()
 
@@ -25,7 +27,7 @@ def root():
     form = banIP(request.form)
     
     # analisa o tipo da request que foi realizada, e no caso de uma POST request o valor inserido no formulário
-    if request.method == 'POST':
+    if(request.method == 'POST'):
         name = request.form['name']
         add_ban(name)
         bannedIPS.append(name)
@@ -34,9 +36,11 @@ def root():
     return render_template('index.html', form=form)
 
 
-@app.route("/listagem")
+@app.route("/listagem", methods = ['GET'])
 def listIP():
-    return str(bannedIPS)
+    if(request.method == 'GET'):
+        strList = filterIPs()
+        return str(strList)
 
 
 def returnBans():

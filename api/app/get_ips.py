@@ -1,5 +1,8 @@
 # aqui eu realizei a importação das bibliotecas necessárias
+from database_operations import add_ip
 import requests, json
+
+
 
 # array que irá armazenar os nosso IP's
 ipList = list()
@@ -32,7 +35,10 @@ def getAll():
     
     # laço for para verificação de possíveis erros
     for ip in ipList:
-        print(ip)
+        add_ip(str(ip))
+
+    return ipList
+
 
 
 getAll()

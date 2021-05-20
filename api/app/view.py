@@ -1,3 +1,4 @@
+
 # importando as bibliotecas necessárias
 from flask import Flask, render_template, request
 from wtforms import Form, TextField
@@ -17,7 +18,7 @@ app.config['SECRET_KEY'] = 'proof'
 
 # definindo a rota principal, o diretorio raiz da nossa aplicação
 @app.route("/", methods=['GET', 'POST'])
-def hello():
+def root():
     # nesta linha eu crio também uma instancia 
     form = banIP(request.form)
     
@@ -29,9 +30,14 @@ def hello():
     # retorna o html da pasta templates e executa ele
     return render_template('index.html', form=form)
 
+
+@app.route("/listagem")
+def listIP():
+    return str(bannedIPS)
+
+
 def returnBans():
     return bannedIPS
 
 # e por fim roda o nosso código
-def runView():
-    app.run()
+app.run()

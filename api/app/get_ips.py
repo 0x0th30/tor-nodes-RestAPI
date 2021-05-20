@@ -22,20 +22,19 @@ def secndTarget():
     bruteIPs = url.text
     
     # iteração for que adiciona os IP's encontrados a um array pré-definido
-    for ip in bruteIPs:
-        ipList.append(ip)
+    ipList.append(bruteIPs)
 
 
 # método que irá chamar as duas funções
 def getAll():
-    #firstTarget()
+    firstTarget()
     secndTarget()
     
     # laço for para verificação de possíveis erros
-    #i = 1
-    #for ip in ipList:
-    #    print(f'IP: {i}   ==>  {ip}')
-    #    i += 1
+    i = 1
+    for ip in ipList:
+        print(f'IP: {i}   ==>  {ip}')
+        i += 1
 
 
 getAll()

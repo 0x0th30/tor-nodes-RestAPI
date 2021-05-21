@@ -1,11 +1,13 @@
-
 # importando as bibliotecas necessárias
 from flask import Flask, render_template, request
 from wtforms import Form, TextField
 
 from database_operations import *
-from get_ips import getAll
+from database_operations import add_ip
 from ban_filter import filterIPs
+
+
+add_ip()
 
 bannedIPS = list()
 
@@ -40,9 +42,9 @@ def root():
 @app.route("/listagem", methods = ['GET'])
 def listIP():
     if(request.method == 'GET'):
-        strList = filterIPs()
+        ipList = filterIPs()
         
-        return('<p>' + '</p><p>'.join(strList) + '</p>')
+        return('<p>' + '</p><p>'.join(ipList) + '</p>')
 
 
 def returnBans():

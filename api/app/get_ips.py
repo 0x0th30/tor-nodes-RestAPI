@@ -1,5 +1,5 @@
 # aqui eu realizei a importação das bibliotecas necessárias
-from database_operations import add_ip
+#from database_operations import add_ip
 import requests, json
 
 
@@ -44,11 +44,7 @@ def getAll():
     secndTarget()
     
     # laço for para verificação de possíveis erros
-    for ip in ipList:
-        add_ip(str(ip))
-
+    #for ip in ipList:
+    #    add_ip(str(ip))
+    
     return ipList
-
-
-
-getAll()

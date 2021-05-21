@@ -40,7 +40,8 @@ def root():
 def listIP():
     if(request.method == 'GET'):
         strList = filterIPs()
-        return str(strList)
+        
+        return('<p>' + '</p><p>'.join(strList) + '</p>')
 
 
 def returnBans():

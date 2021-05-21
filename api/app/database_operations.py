@@ -46,4 +46,3 @@ def returnAllBans():
         ban_list.append(str(row[0]))
 
     return ban_list
-

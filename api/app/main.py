@@ -36,6 +36,7 @@ def root():
     return render_template('index.html', form=form)
 
 
+# definindo a rota secundario, que ira apresenta individualmente cada IP
 @app.route("/listagem", methods = ['GET'])
 def listIP():
     if(request.method == 'GET'):

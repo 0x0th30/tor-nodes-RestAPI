@@ -25,7 +25,17 @@ def secndTarget():
     bruteIPs = url.text
     
     # iteração for que adiciona os IP's encontrados a um array pré-definido
-    ipList.append(bruteIPs)
+    def convert(IPlist):
+        IPlist.replace('\n', ' ')
+        ips = list(IPlist.split(' '))
+
+        return ips
+
+    fList = convert(bruteIPs)
+
+    # iteração for que adiciona os IP's encontrados a um array pré-definido
+    for item in fList:
+        ipList.append(item)
 
 
 # método que irá chamar as duas funções

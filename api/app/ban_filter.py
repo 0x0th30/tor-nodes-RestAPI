@@ -10,6 +10,7 @@ def filterIPs():
             for ban in banList:
                 if(ip == ban):
                     ipList.remove(ip)
+                    
 
     except ValueError:
         pass

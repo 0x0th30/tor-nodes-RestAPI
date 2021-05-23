@@ -3,11 +3,9 @@ from flask import Flask, render_template, request
 from wtforms import Form, TextField
 
 from database_operations import *
-from database_operations import add_ip
 from ban_filter import filterIPs
 
 
-add_ip()
 
 bannedIPS = list()
 

@@ -1,5 +1,4 @@
 # aqui eu realizei a importação das bibliotecas necessárias
-#from database_operations import add_ip
 import requests, json
 
 
@@ -26,7 +25,9 @@ def secndTarget():
     
     # iteração for que adiciona os IP's encontrados a um array pré-definido
     def convert(IPlist):
-        IPlist.replace('\n', ' ')
+        for item in IPlist:
+            item.replace('\\n', ' ')
+
         ips = list(IPlist.split(' '))
 
         return ips
@@ -43,8 +44,11 @@ def getAll():
     firstTarget()
     secndTarget()
     
-    # laço for para verificação de possíveis erros
-    #for ip in ipList:
-    #    add_ip(str(ip))
+
     
+    with open('/home/theo/Projects/challenge/api/app/lists/ip_list.txt', 'w') as file:
+        for ip in ipList:
+            file.write(f'{ip}\n')
+
     return ipList
+

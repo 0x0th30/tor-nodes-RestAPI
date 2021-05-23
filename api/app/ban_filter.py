@@ -1,37 +1,42 @@
 from database_operations import returnAllIPs, returnAllBans
+from get_ips import getAll
 
-lista = list()
 
 def filterIPs():
-    ipList = returnAllIPs()
-    banList = returnAllBans()
 
-    try:    
+    try:
+        ipList = returnAllIPs()
+        banList = returnAllBans()
+
         for ip in ipList:
+
             for ban in banList:
+                
                 if(ip == ban):
                     index = ipList.index(ip)
                     ipList[index] = ip.replace(ip, 'xxx.xxx.xxx.xxx')
                     
+        with open('/home/theo/Projects/challenge/api/app/lists/ip_list.txt', 'w') as file:
+            for ip in ipList:
+                file.write(f'{ip}\n')
 
-    except ValueError:
-        pass
+    except FileNotFoundError:
+        getAll()
 
-    return ipList
+        ipList = returnAllIPs()
+        banList = returnAllBans()
 
-
-def showFilter():
-    ipList = returnAllIPs()
-    banList = returnAllBans()
-
-    try:    
         for ip in ipList:
-            for ban in banList:
-                if(ip == ban):
-                    ipList.remove(ip)
-                    
 
-    except ValueError:
-        pass
+            for ban in banList:
+                
+                if(ip == ban):
+                    index = ipList.index(ip)
+                    ipList[index] = ip.replace(ip, 'xxx.xxx.xxx.xxx')
+                    
+        with open('/home/theo/Projects/challenge/api/app/lists/ip_list.txt', 'w') as file:
+            for ip in ipList:
+                file.write(f'{ip}\n')
 
     return ipList
+

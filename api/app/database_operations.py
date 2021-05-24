@@ -18,7 +18,7 @@ def add_ban(ip):
 
 # função específica para teste
 def returnAllIPs():
-    with open('/home/theo/Projects/challenge/api/app/lists/ip_list.txt', 'r') as file:
+    with open('api/app/lists/ip_list.txt', 'r') as file:
         ip_list = [line.strip() for line in file]
 
     return ip_list

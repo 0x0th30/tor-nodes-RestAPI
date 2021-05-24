@@ -49,4 +49,5 @@ def returnBans():
     return bannedIPS
 
 # e por fim roda o nosso código
-app.run()
+if(__name__ == '__main__'):
+    app.run(host='0.0.0.0')

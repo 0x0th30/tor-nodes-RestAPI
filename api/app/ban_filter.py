@@ -16,7 +16,7 @@ def filterIPs():
                     index = ipList.index(ip)
                     ipList[index] = ip.replace(ip, 'xxx.xxx.xxx.xxx')
                     
-        with open('/home/theo/Projects/challenge/api/app/lists/ip_list.txt', 'w') as file:
+        with open('./api/app/lists/ip_list.txt', 'w') as file:
             for ip in ipList:
                 file.write(f'{ip}\n')
 
@@ -34,9 +34,9 @@ def filterIPs():
                     index = ipList.index(ip)
                     ipList[index] = ip.replace(ip, 'xxx.xxx.xxx.xxx')
                     
-        with open('/home/theo/Projects/challenge/api/app/lists/ip_list.txt', 'w') as file:
+        with open('api/app/lists/ip_list.txt', 'w') as file:
             for ip in ipList:
                 file.write(f'{ip}\n')
 
-    return ipList
+    return ipList 
 

@@ -1,9 +1,9 @@
 FROM python:3
 
-WORKDIR /usr/src/app
+WORKDIR /app
 
 COPY . .
 RUN pip install -r requirements.txt
 
 ENTRYPOINT ["python"]
-CMD ["./view/app.py"]
+CMD ["./api/app/main.py"] 

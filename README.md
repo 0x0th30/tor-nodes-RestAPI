@@ -24,6 +24,8 @@ multi-plataforma" do python, bem como sua performance e versatilidade.
 
 # Requisitos
 
+ Você deve obter primeiramente a [imagem Docker](https://hub.docker.com/r/0x0th30/challenge_api) do projeto.
+
  Como estou utilizando o recurso de "containers", o projeto não irá apresentar problemas de dependências,
 porém você deve ter instalado em sua máquina o client do Docker.
 
@@ -40,6 +42,8 @@ utilizando a versão do Docker correspondente para o mesmo, versão (20.10.6):
  
  - https://download.docker.com/win/static/stable/x86_64/docker-20.10.6.zip
 
+OBS: Certifique-se de que seu usuário esteja no grupo "docker-users" para poder executar o mesmo.
+
 
 # Executando a aplicação
 
@@ -54,3 +58,22 @@ ou caso não esteja logado como root:
 ```
 sudo docker-compose up
 ```
+
+
+# Utilizando a aplicação
+
+ No momento que você iniciar o container como citado anteriormente, você verá algo do tipo em seu terminal:
+ ```
+theo@mint:~/Projects/challenge$ sudo docker-compose up
+Starting challenge_api_1 ... done
+Attaching to challenge_api_1
+api_1  |  * Serving Flask app "main" (lazy loading)
+api_1  |  * Environment: production
+api_1  |    WARNING: This is a development server. Do not use it in a production deployment.
+api_1  |    Use a production WSGI server instead.
+api_1  |  * Debug mode: off
+api_1  |  * Running on http://0.0.0.0:5000/ (Press CTRL+C to quit)
+ ```
+Feito isso acesse o endereço retornado e terá acesso á aplicação. O uso dela é realmente bem simples, você terá 
+as opções de ver ou banir endereços IP. Para banir algum IP, escreva o mesmo no campo de entrada da página e
+clique no botão "Submit", se desejar ver a sua lista de IP's clique no primeiro botão, "Ver IP's encontrados".
